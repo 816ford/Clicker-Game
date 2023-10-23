@@ -10,7 +10,9 @@ SCREEN = pygame.display.set_mode((width, height))
 BG = pygame.image.load("background.jpg")
 BG = pygame.transform.scale(BG, (width, height))
 oj_button = pygame.image.load("Oj.png")
-
+gameBG = pygame.image.load("gameBG3.jpg")
+gameBG = pygame.transform.scale(gameBG, (width, height))
+treeButton = pygame.image.load("tree2nobg.png")
 
 
 def main_menu():
@@ -53,8 +55,10 @@ def main_menu():
 def play():
     pygame.display.set_caption("Play")
     while True:
-        SCREEN.fill("black")
-        
+        SCREEN.blit(gameBG, (0, 0))
+        treeButton_rect = treeButton.get_rect()
+        treeButton_rect.center = (300, 400)
+        SCREEN.blit(treeButton, treeButton_rect)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
